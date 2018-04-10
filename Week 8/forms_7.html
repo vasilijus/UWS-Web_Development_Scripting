@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Loan Calculator, validated, rounded, long and short term</title>
+<script type="text/javascript">
+//<![CDATA[
+function validate(field) {
+        var number=field.value;
+        if (isNaN(number)||number==null||number=="") {
+                window.alert("Non-numerical input is invalid");
+                field.form.monthly_payment.value="";
+                field.value="";
+                field.focus();
+        } else {
+                payment(field.form); 
+                // An input has changed, so update calculation
+        }
+}
+function payment(any_old_name) {
+        var interest=any_old_name.interest.value;
+        var capital=any_old_name.amount.value;
+        /*      
+        the strange way of adding numbers on the following line prevents
+        concatenation for form fields which are strings
+        */
+        var term=any_old_name.term_years.value-(-1.0)*any_old_name.term_months.value/12.0;
+        monthly_interest=interest/1200.0;
+        monthly=capital*monthly_interest;
+        monthly=monthly/(1.0-1.0/Math.pow(1.0+monthly_interest,term*12.0));
+        // monthly will be non-numerical if form is still only partially filled in
+        if( isNaN(monthly) ) any_old_name.monthly_payment.value=""
+        else any_old_name.monthly_payment.value=monthly.toFixed(2);
+}       
+//]]>
+</script>
+</head>
+<body>
+  <form id="loan_form" action="#" method="get" onsubmit="return false;">
+    <h2>Monthly Repayment Loan Calculator</h2>
+    <h3>Validated inputs, rounded output, term in years and/or months.</h3>
+    <table>
+      <tr>
+        <td></td>
+        <td colspan="2">Enter amount you wish to borrow</td>
+      </tr>
+      <tr>
+        <td>&pound;</td>
+        <td><input type="text" name="amount" value="" onchange="validate(this)" /></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Enter term</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="text" name="term_years" value="" onchange="validate(this)" /></td>
+        <td>years</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="text" name="term_months" value="" onchange="validate(this)" /></td>
+        <td>months</td><!-- insert an extra cell form months input -->
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Enter annual interest rate</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="text" name="interest" value="" onchange="validate(this)" /></td>
+        <td>%</td><!-- remember to change the index as interest is now the fourth element  -->
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">The monthly payment is</td>
+      </tr>
+      <tr>
+        <td>&pound;</td>
+        <td><input type="text" name="monthly_payment" value="" onchange="payment(this.form)" /></td>
+        <td></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

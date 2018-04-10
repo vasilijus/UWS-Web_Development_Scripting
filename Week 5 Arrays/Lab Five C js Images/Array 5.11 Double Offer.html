@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Skinflint's doubled salary offer</title>
+<script type="text/javascript">
+
+	// Make and array with images
+		var yesNo = new Array();
+		
+		yesNo[0] = new Image();
+		yesNo[0].src = "images5.11/yes.jpg";
+		
+		yesNo[1] = new Image();
+		yesNo[1].src = "images5.11/no.jpg";
+
+	//When mouse is over the image, swap the image
+
+		function swap(variable) {
+			document.images[variable == 0 ? 0:1].src = yesNo[1].src; //if equal gives 0, first statement _0_ : 1
+			document.images[variable != 0 ? 0:1].src = yesNo[0].src; // its not equal = 0 : _1_
+			/*
+			if (variable == 0) {
+				document.images[0].src = yesNo[1].src;
+				document.images[1].src = yesNo[0].src;
+				//console.log(document.images[0].src);
+			} else if (variable == 1) {
+				document.images[0].src = yesNo[0].src;
+				document.images[1].src = yesNo[1].src;
+				//console.log(document.images[1].src);
+			}
+*/			
+		}
+</script>
+</head>
+
+<body>
+  <h2>Memo - your doubled salary</h2>
+
+  <p>Dear Employee,</p>
+
+  <p>Please click below to accept or decline a doubled salary.</p>
+
+	<p>	
+		<img id="y" src="images5.11/yes.jpg" onmouseover="swap(0)" alt="Salary Chooser" width="369" height="137" />
+		<img id="n" src="images5.11/no.jpg" onmouseover="swap(1)" alt="Salary Chooser" width="369" height="137" />
+	</p>
+
+  <p>Yours sincerely,</p>
+
+  <p>A Skinflint.</p>
+</body>
+</html>

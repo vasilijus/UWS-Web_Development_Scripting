@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Regular Expression (RE) validation of simple contact details (more usable submission validation)</title>
+<script type="text/javascript">
+//<![CDATA[
+/* 
+This generic test function is for general use with your own regular expressions and variables or forms.
+Three arguments are expected:
+1) regular expression object of pattern/flags,
+2) the title of the format or pattern to be matched,
+3) variable or value of text form element.
+The function displays a warning incorporating the title if no match is found and returns a boolean value.
+*/ 
+function genericTest(anyRE,title,stringToTest) {
+        if(anyRE.test(stringToTest)) {
+                return true;
+        } else {
+                window.alert("The " + title +" format of:\n" + stringToTest + "\nwas not recognised.");
+                return false;
+        }
+}
+/*
+telephone number RE for use in generic function, accepts most spaces, 
+so you'd have to clean up the 'phone number before your computer could dial it.
+*/
+phoneRE = /^(\+|\s)*\d*(\d|\s)*(\(\s*\d(\d|\s)*\)|(\d|\s)*)(\d|\s)+(x\s*\d(\d|\s)*|ext\s*\d(\d|\s)*)?$/i;
+/* 
+this e-mail address RE is HUMAN friendly because it forgives the user 
+if spaces added at beginning and end (but not elsewhere).
+However, you'll need to remove such spaces before you use the e-mail address.
+*/
+friendly_eMailRE = /^\s*[\w\-\.]+@([a-z0-9]+\.){1,3}[a-z]{2,6}\s*$/i;
+/* 
+this e-mail address RE is COMPUTER friendly because it rejects all spaces
+*/
+eMailRE = /^[\w\-\.]+@([a-z0-9]+\.){1,3}[a-z]{2,6}$/i;
+function checkWhole() {
+        /*
+        if OK variable is false, skip subsequent tests so user can 
+        correct entries one at a time in the same order as on the form
+        */
+        OK = checkFullName(document.getElementById('fullname').value);
+        if ( OK ) OK = genericTest(phoneRE,"telephone number",document.getElementById('phone').value);
+        if ( OK ) OK = genericTest(friendly_eMailRE,"e-mail address",document.getElementById('email').value);
+        return OK; // OK false if any ONE (or more) test fails 
+}
+// Reject full name if less than 5 characters
+function checkFullName (fn) {
+        if(fn.length < 5) { // reject missing or full name less than 5 characters
+                window.alert("The full name format:\n" + fn + "\nwas not recognised (missing or too short).");
+                return false;
+        } else {
+                return true;
+        }       
+}
+//]]>
+</script>
+<style type="text/css">
+table {border:none}
+th {text-align: right}
+</style>
+</head>
+<body>
+  <h2>Regular Expression (RE) validation of simple contact details (more usable submission validation)</h2>
+  <form method="post" action="http://pict.paisley.ac.uk/cgi-davison/contacts.py" onsubmit="return checkWhole();" id="contact">
+    <table>
+      <tr>
+        <th>Full name:</th>
+        <td><input type="text" size="40" onchange='dummy = checkFullName(this.value);' name="fullname" id="fullname"/></td>
+      </tr>
+      <tr>
+        <th>Phone Number:</th>
+        <td><input type="text" onchange='dummy = genericTest(phoneRE,"telephone number",this.value);' size="40" name="phone" id="phone"/></td>
+      </tr>
+      <tr>
+        <th>e-mail:</th>
+        <td><input type="text" onchange='dummy = genericTest(eMailRE,"e-mail address",this.value);' size="40" name="email" id="email"/></td>
+      </tr>
+      <tr>
+	  	<th></th>
+		<!--
+		in this particular example we are not interested in sending the  string "Register Contact Details" 
+		to the server so the name has been removed from submit button
+		--> 		
+	  	<td><input type="submit" value="Register Contact Details" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

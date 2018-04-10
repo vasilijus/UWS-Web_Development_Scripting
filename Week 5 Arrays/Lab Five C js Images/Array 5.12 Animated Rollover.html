@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<style type="text/css">
+
+		</style>
+      	<p>Arrays 5.12</p>
+		
+		<script type="text/javascript">
+		var imgNr = 0 ;
+			var jsimages = new Array(11);
+			for (var i = 0 ; i < 11; i = i + 1) {
+				jsimages[i] = new Image();
+				jsimages[i].src = "images5.9/t" + i + ".gif";
+				console.log(i);
+			}
+
+			function animate(){
+				document.animation.src = jsimages[imgNr].src;
+				imgNr++;
+				if(imgNr >10) {
+					imgNr = 0 
+				}
+			}
+			
+		</script>
+	</head>
+<body >
+    <p>
+        <a href="test.html"><img 	onmouseenter="running = window.setInterval('animate();',200);"
+				onmouseleave="window.clearInterval(running);"
+				name="animation" src="images5.9/t0.gif" alt="Changing" /><br />
+        </a>
+    </p>
+</body>
+</html>

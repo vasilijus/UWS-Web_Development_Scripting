@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>
+      Radio and Checkbox Pizza Choice Template File
+    </title>
+<script type="text/javascript">
+//<![CDATA[
+
+function pizzaPrice() {
+        var price = 0; // declare a local variable
+        // use the correct names in the following line 
+        if (document.getElementsByName('size')[0].checked) 	price = 2; 
+		if (document.getElementsByName('size')[1].checked)	price = 3.50; 
+		if (document.getElementsByName('size')[2].checked)	price = 4.50; 
+		 
+        // when you've fixed the line above, duplicate and slightly modify for the other size radio buttons
+		// then use something similar to add the cost for each of the toppings checkboxes chosen by the user
+      
+		
+		if (document.getElementsByName('toppings')[2].checked)	price = price + 0.75 ;
+		if (document.getElementsByName('toppings')[3].checked)	price = price + 0.75 ;
+		if (document.getElementsByName('toppings')[4].checked)	price = price + 0.50 ;
+		if (document.getElementsByName('toppings')[5].checked)	price = price + 0.40 ;
+		if (document.getElementsByName('toppings')[6].checked)	price = price + 0.30 ;	
+		// output local variable to value of form element (you did this for task 8.1)
+		  document.getElementsByName('cost')[0].value = price.toFixed(2) ;
+}
+		
+//]]>
+</script>
+  </head>
+  <body onload="pizzaPrice();">
+    <h2>
+      Radio and Checkbox Pizza Choice Template File
+    </h2><!-- add an event handler to call the function when the form submits -->
+    <form method="post" name="pizzaOrder" onchange="pizzaPrice(); return false;" action="http://pict.uws.ac.uk/cgi-davison/pizza.py" id="order">
+      <fieldset>
+        <legend>Please design your pizza!</legend>
+        <fieldset>
+          <legend>How hungry are you? Please select base size.</legend> 
+					<input type="radio" name="size" value="9" checked="checked" />9 inch (1 person, &pound;2.00)<br />
+          <input type="radio" name="size" value="12" /> 12 inch (1-2 persons, &pound;3.50)<br />
+          <input type="radio" name="size" value="15" /> 15 inch (3-4 persons, &pound;4.50)<br />
+        </fieldset>
+        <fieldset>
+          <legend>What do you like? Please select toppings.</legend> 
+					<input type="checkbox" name="toppings" value="cheese" checked="checked" />cheese (free)<br />
+          <input type="checkbox" name="toppings" value="tomato" checked="checked" />tomato (free)<br />
+          <input type="checkbox" name="toppings" value="ham" />ham (75p)<br />
+          <input type="checkbox" name="toppings" value="salami" />salami (75p)<br />
+          <input type="checkbox" name="toppings" value="olives" />olives (50p)<br />
+          <input type="checkbox" name="toppings" value="peppers" />peppers (40p)<br />
+          <input type="checkbox" name="toppings" value="onions" />onions (30p)<br />
+        </fieldset>
+        <fieldset>
+          This pizza will cost &pound;: <input type="text" name="cost" value="-.--" /><br />
+          <input type="submit" value="Place Order" />
+        </fieldset>
+      </fieldset>
+    </form>
+  </body>
+</html>

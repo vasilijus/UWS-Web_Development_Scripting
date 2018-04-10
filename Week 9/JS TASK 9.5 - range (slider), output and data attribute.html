@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<!-- template of basic structure of an HTML5 file -->
+<head>
+<meta charset="utf-8" />
+<title>HTML5 type="range" With Output Examnple</title>
+<style type="text/css"></style>
+<script type="text/javascript">
+</script>
+</head>
+<body onload="console.log('ONLOAD'); document.getElementById('cleanliness').onchange()">
+<form action="#" method="get" onsubmit="return false;">
+<fieldset>
+<legend>Please rate out facilities</legend>
+<label for="cleanliness">Cleanliness (0-5)</label>
+<output name="cleanlinessOutput" id="cleanlinessOutput"></output><br/>
+<input 
+	type="range" name="cleanliness" id="cleanliness" value="2.5" min="0" max="5" step="0.5"
+	data-wsd-output="cleanlinessOutput"
+	onchange="console.log(this.dataset,this.dataset.wsdOutput);  document.getElementById(this.dataset.wsdOutput).value = this.value;"  
+/>
+</fieldset>
+</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>JS TASKs</title>
+      <style type="text/css">
+      
+      </style>
+	</head>
+	<body>
+		<p>Task 8.4</p>
+		
+			<form onsubmit="return false" name="count" method="get" action="http://pict.uws.ac.uk/cgi-davison/reflect.cgi" >
+				
+				<h2>Monthly Repayment</h2>
+				
+				<label> Enter ammount you wish to borrow</label><br />
+				£&nbsp;<input type="text" name="borrow" /><br />
+				<label> Enter term</label><br />
+				&nbsp;&nbsp;<input type="text" name="years" />years<br />
+				<label> Enter annual interest rate</label><br />
+				&nbsp;&nbsp;<input type="text" name="monthInterest" />%<br />
+				<label> The monthly payment is</label><br />
+				£&nbsp;<input type="text" name="result" />
+				
+				<input type="submit" onclick="payment()" value="submit" />
+			</form>
+		
+		<script>
+		
+		a = Math.PI;
+		b = a.toFixed(4);
+		document.write("Your computer says pi is "+a+" and but rounded to 4 decimal places it is "+b);
+		
+		function payment() {
+			
+				var interest= document.count.monthInterest.value; // copy value from form element to local variable 
+				var capital= document.count.borrow.value;  // copy value from form element to local variable
+				var term= document.count.years.value;     // copy value from form element to local variable
+				var monthly_interest=interest/1200.0;
+				var monthly = capital*monthly_interest;
+				monthly = monthly /(1.0-1.0 / Math.pow(1.0+monthly_interest,term*12.0));
+				document.count.result.value = monthly;  // output local variable to value of form element
+				
+				if ( isNaN(capital) || isNaN(parseFloat(capital)) ) {
+					// if the variable or parseFloat of the variable is not a number then warn the user 
+					document.count.result.value = "NaN";
+				}
+				
+				/*if (capital == "") {
+					document.count.result.value = "NaN";
+				}*/
+		}
+		
+		</script>
+
+	</body>
+</html>

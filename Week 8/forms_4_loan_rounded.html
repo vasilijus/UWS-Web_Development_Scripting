@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Validated Loan Form - simpler version</title>
+<script type="text/javascript">
+//<![CDATA[
+function payment() {
+        var interest=document.getElementById('inter').value; 
+		var capital=document.getElementById('amt').value;  
+        var term=document.getElementById('yrs').value; 
+        if(checkNum(interest)==false || checkNum(capital)==false || checkNum(term)==false) {
+                document.forms[0].pcm.value = "";
+                return;
+        }
+        var monthly_interest=interest/1200.0;
+        var monthly=capital*monthly_interest;
+        monthly=monthly/(1.0-1.0/Math.pow(1.0+monthly_interest,term*12.0));
+        document.forms[0].pcm.value = monthly.toFixed(2); // just need to add toFixed method
+}
+function checkNum(x) {
+        if ( isNaN(x) || isNaN(parseFloat(x)) ) {
+                window.alert("Warning - input must be a number");
+                return false;
+        } else {
+                return true;
+        }
+}
+//]]>
+</script>
+</head>
+<body>
+  <form onsubmit="return false;" action="#" id="loan">
+  <fieldset>
+    Amount &pound;<input type="text" name="amt" id="amt" onchange="checkNum(this.value)" /><br />
+    Term <input type="text" name="yrs" id="yrs" onchange="checkNum(this.value)" />Years<br />
+    Interest<input type="text" name="inter" id="inter" onchange="checkNum(this.value)" />%<br />
+    <input value="Calculate Monthly Repayment" type="button" onclick="payment();" /><br />
+    Monthly Payment<input type="text" name="pcm" />
+  </fieldset>  
+  </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>Image mapping</title>
+      <style type="text/css">
+      
+        .circ{
+		z-index:1111;
+		border: 1px solid red;
+		overflow:visible;
+		background-color:pink;}   
+		area circle{border: 1px solid red}
+      
+      </style>
+      </head>
+      <body>
+      	<img src="areas5.png" alt="shapes" usemap="#shapes" width="321" height="252" />
+		
+		<map name="shapes" id="shapes">
+		
+			<area class="circ" shape="circle" coords="90,90,50" href="circle.html" alt="circle" />
+			<area class="rect" shape="rect" coords="190,25,300,100" href="rect.html" alt="rectangle" />
+			<area shape="poly" coords="180,110,250,190,210,240,120,150" href="poly.html" alt="poly" />
+			
+		</map>
+		
+      </body>
+</html>

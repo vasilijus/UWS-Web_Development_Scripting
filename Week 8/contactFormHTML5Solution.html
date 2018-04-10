@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<!-- template of basic structure of an HTML5 file -->
+<head>
+  <title>Regular Expression (RE) validation of simple contact details using HTML5 with no JS</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <h1>Regular Expression (RE) validation of simple contact details using HTML5 with no JS</h1>
+
+  <form method="post" action="http://pict.paisley.ac.uk/cgi-davison/contacts.py">
+    <table border="0">
+      <tr>
+        <th align="right">Full name:</th>
+
+        <td><input name="fullname" type="text" required size="40" pattern=".{5,}" title="Full name must be at least 5 characters"/></td>
+      </tr>
+
+      <tr>
+        <th align="right">Phone Number:</th>
+
+        <td><input name="phone" type="tel" required size="40"/></td>
+      </tr>
+
+      <tr>
+        <th align="right">e-mail:</th>
+
+        <td><input name="email" type="email" required size="40" /></td>
+      </tr>
+
+      <tr>
+        <th align="right"> </th>
+
+        <td><input type="submit" name="Submit" value="Register Contact Details" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

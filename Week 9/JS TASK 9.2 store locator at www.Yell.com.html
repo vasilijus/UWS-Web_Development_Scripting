@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Store Locator - Select Menu Yell Interface</title>
+<style type="text/css">
+/* <![CDATA[ */  
+legend { font-weight: bold }
+fieldset { display: inline-block; }
+/* ]]> */
+</style>
+<script type="text/javascript">
+	function getSelectValue(selectObjectId) {
+								console.log("The selectObjectId is " + selectObjectId);
+    var val;
+    selectObject = document.getElementById(selectObjectId);
+    var si = selectObject.selectedIndex;
+    if ( si < 0 ) val = null;
+    else val = selectObject.options[si].value;
+								console.log("The selectedIndex is " + si);
+								console.log("The selected value is " + val);
+    return val;
+	}
+	
+	function checkBoth() {
+		var keywds = getSelectValue("keywords");
+		var loc = getSelectValue("location");
+			if (keywds == "") {
+				alert("oi select market");
+				return false;
+			}
+			if (loc == "") {
+				alert("oi select location");
+				return false;
+			}
+		console.log(keywds, loc);
+		return true ;
+	}
+</script>
+</head>
+<body>
+<form id="shoppingForm" method="get"  
+		action="http://www.yell.com/ucs/UcsSearchAction.do"
+		onsubmit="return checkBoth(); ">
+	<fieldset>
+	<legend>Store Locator - Select Menu Yell Interface</legend>
+	<label for="keywords">Supermarket Chain:</label>
+	<select name="keywords" id="keywords">
+		<option selected="selected" disabled="disabled"></option>
+		<option>Asda</option>
+		<option>Marks and Spencer</option>
+		<option>Sainsburys</option>
+		<option>Tesco</option>
+	</select>
+	<label for="location">Town or City:</label>
+	<select name="location" id="location">
+		<option selected="selected" disabled="disabled"></option>
+		<option>Aberdeen</option>
+		<option>Edinburgh</option>
+		<option>Dundee</option>
+		<option>Glasgow</option>
+		<option>Paisley</option>
+		<option>Stirling</option>
+	</select>
+	<label for="buttons">Yell.com Search Type:</label>
+	<input type="submit" id="buttons" value="Show Addresses etc"/>
+	<input type="button" 
+		onclick="this.form.action = this.form.action + '#view=map'; if(checkboth()) this.form.submit();" value="Show Map View"/>
+	<!-- add an anchor for map view when user clicks this button -->
+	</fieldset>
+</form>
+<dl>
+  <dt>URL for asda in Dundee in list view</dt>
+  <dd>https://www.yell.com/ucs/UcsSearchAction.do?keywords=asda&location=Dundee&scrambleSeed=526287892</dd>
+  <dt>URL for asda in Dundee in map view</dt>
+  <dd>https://www.yell.com/ucs/UcsSearchAction.do?keywords=asda&location=Dundee&scrambleSeed=522288892#view=map</dd>
+  <dt>form action deduced from URLs</dt>
+  <dd>http://www.yell.com/ucs/UcsSearchAction.do</dd>
+  <dt>form method deduced from URLs</dt>
+  <dd>get</dd>
+  <dt>form element named keywords present in URLs</dt>
+  <dd>value is the name of the company (eg Tesco) or a type of business (eg plumber)</dd>
+  <dt>form element named location present in URLs</dt>
+  <dd>value is a placename or geographical area</dd>
+  <dt>an optional anchor view=map present in URL</dt>
+  <dd>add an anchor &apos;#view=map&apos; to the form action for a map view (anchors are not normally name=value pairs but we have to follow how the yell developer thinks)</dd>  
+  <dt>form element named scrambleSeed present in URLs</dt>
+  <dd>doesn't seem very important, perhaps used for A/B testing or varying presentation of results so Aadvark Plumbers is not always at the top of the list</dd>  
+</dl>
+</body>
+</html>

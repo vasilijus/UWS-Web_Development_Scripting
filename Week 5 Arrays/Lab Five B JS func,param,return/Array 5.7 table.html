@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>Arrays</title>
+		<style type="text/css">
+
+		table{
+			border:outset 5px;
+		}
+		table tr,
+		table th,
+		table td {
+			border:inset 2px;
+			width:25%;
+		}
+		table caption {
+			caption-side:bottom;
+		}
+
+		</style>
+	</head>
+	<body>
+      	<p>Arrays 5.7</p>
+		
+		<script type="text/javascript">
+		
+			term = new Array();
+			term[0] = 12;
+			term[1] = 18;
+			term[2] = 24;
+			term[3] = 30
+			term[4] = 42;
+			term[5] = 48;
+			
+			var capital = 1000; 
+			var interest = 12;
+			
+			function payment(capital, interest, term) {
+				term = term / 12.0 //this line makes the function work in months
+				monthly_interest = interest / 1200.0;
+				monthly = capital * monthly_interest;
+				monthly = monthly /(1.0-1.0 / Math.pow(1.0 + monthly_interest,term * 12.0));
+				monthly = monthly.toFixed(2);
+				return monthly;
+			}
+			
+
+			document.write("<table>");
+			document.write("<tr><th>months</th><th>Montly Payment</th><th>Total Repayments</th></tr>")
+			for (var i = 0 ; i < term.length ; i++) {
+			totalPay = (payment(capital,interest,term[i]) * term[i]).toFixed(2);
+			document.write("<tr><td>" + term[i] + "</td><td> &pound; " + payment(capital,interest,term[i]) +"</td><td>" + totalPay  + "</td></tr>")
+			}
+			document.write("</table>");
+		</script>
+		
+      </body>
+</html>

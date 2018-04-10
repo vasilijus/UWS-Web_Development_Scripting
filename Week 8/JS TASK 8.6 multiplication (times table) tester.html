@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>JS TASKs</title>
+      <style type="text/css">
+      
+      </style>
+	</head>
+	<body>
+		<p>Task 8.6</p>
+		
+			<form onsubmit="return false" name="count" method="get" action="http://pict.uws.ac.uk/cgi-davison/reflect.cgi" >
+				
+				<h2>multiplication (times table) tester</h2>
+				
+				<input type="submit" onclick="multiply()" value="submit" />
+			</form>
+		
+		<script>
+		function first() {
+			var r1 = Math.ceil(Math.random() * 12);
+			return r1;
+		}
+
+		
+		
+		
+		function multiply() {
+		 var f = first();
+		 var s = first();
+			for( i = 0; i < 3; i++){
+				
+				var answer = f * s;
+				var getAnswer = parseInt(prompt("What is " + f + " times "+s + " ?"));
+				console.log(f, " x ",s," = ", answer," attempts ",i," respionse ", getAnswer);	
+					if (getAnswer == answer) {
+						console.log("correct");
+						break;
+					} else {
+						console.log("wrong");
+						continue;
+					}
+				
+			}
+			alert(messages[i]);
+			
+		}
+		
+		var messages = new Array(); 
+		messages[0] = "Well done, you got it right first time!    :-)"; 
+		messages[1] = "Hmmm, you needed a second attempt!"; 
+		messages[2] = "At last, you got it on the third attempt!"; 
+		messages[3] = "That's bad, all three goes were wrong!    :-("; 
+		
+		</script>
+
+	</body>
+</html>

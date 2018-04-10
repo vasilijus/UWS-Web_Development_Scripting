@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en">
+	<head><meta charset="utf-8" />		<title>Basic HTML5 Document Structure</title>
+      <style type="text/css">
+label:not(.unstyled)
+{
+width: 10em;
+float: left;
+text-align: right;
+margin-right: 0.5em;
+}
+     </style>
+      </head>      <body>
+	<h1>My Form Page</h1>
+	<form method="get" action="http://pict.uws.ac.uk/cgi-davison/feedback_3_2.py">
+	<fieldset><legend>Your Details</legend>
+	<input type="hidden" name="My_Form_Page" value="This is a Completed Form"/>
+	<label for="title">Title:</label>
+<select name="personal_title" id="title" size="1">
+<option value="">Please Select</option>
+<option value="Mr">Mr</option>
+<option value="Mrs">Mrs</option>
+<option value="Ms">Ms</option>
+<option value="Miss">Miss</option>
+</select>
+<br><label>First Name:</label> <input type="text" name="Firstname"/><br>
+<label>Surname:</label> <input type="text" name="Surname"/>
+<br>What sort of response would you prefer?<br>
+<input type="radio" name="response" id="Mail" value="mail" /><label>Mail</label><br>
+<input type="radio" name="response" id="Telephone" value="phone" /><label>Telephone</label><br>
+<input type="radio" name="response" id="Fax" value="fax" /><label>Fax</label><br>
+<input type="radio" name="response" id="EMail" value="email" /><label>Email</label>
+<br>I am interested in the following areas: 
+<br><label for="xhtml">XHTML</label>
+<input type="checkbox" name="xhtml" id="xhtml" value="1"/>
+<label class="unstyled" for="css">CSS</label>
+<input type="checkbox" name="css" id="css" value="1"/>
+<label class="unstyled" for="javascript">JavaScript</label>
+<input type="checkbox" name="js" id="javascript" value="1"/>
+<label class="unstyled" for="flash">Flash</label>
+<input type="checkbox" name="flash" id="flash" value="1"/>
+<br>
+<label for="message">Comments:</label>
+<textarea name="customer_feedback" id="message" rows="8" cols="25"></textarea>
+<br><input type="submit" name="Submit_Button" value="Submit Details"/>	
+	</fieldset>
+	</form>
+     </body>
+</html>

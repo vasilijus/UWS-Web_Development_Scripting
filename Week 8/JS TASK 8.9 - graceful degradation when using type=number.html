@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>Interest Rate Calculator with HTML5 type=&quot;number&quot; Form Elements</title>
+      <style type="text/css"></style>
+	  <script type="text/javascript">
+function payment() {
+        var interest=document.getElementById('rate').value; // copy value from form element to local variable 
+        var capital=document.getElementById('capital').value;;  // copy value from form element to local variable
+        var term=document.getElementById('term').value;;     // copy value from form element to local variable
+        var monthly_interest=interest/1200.0;
+        var monthly=capital*monthly_interest;
+        monthly=monthly/(1.0-1.0/Math.pow(1.0+monthly_interest,term*12.0));
+		monthly=monthly.toFixed(2);
+        document.getElementById('pcm').value = monthly;  // output local variable to value of form element
+}
+
+// validator form browser that don't support type=number form elements
+function checkNum(x) {
+        if ( isNaN(x) || isNaN(parseFloat(x)) ) {
+                window.alert("Warning - input must be a number");
+                return false;
+        } else {
+                return true;
+        }
+
+}
+
+</script>
+      </head>
+      <body>
+		<p>
+		Interest rate calculator using type=&quot;number&quot; HTML5 form element which has limited browser 
+		support so JavaScript validation required for those browsers.		
+		</p>
+      	<form action="#" method="get" onSubmit="return false;">
+		<label for="capital">Amount borrowed: &pound;</label>
+        <!-- you can simulate website visitor with an old browser by deliberate miss-spellings such as type="AARDVARK" -->
+		<input type="number" name="CapitalInput" id="capital" value="2000" min="1000" max="10000" step="100" onChange="checkNum(this.value)"/>
+        <!-- onchange validator form browser that don't support type=number form elements -->
+		<br/>
+		<label for="term">Loan Term: </label>
+        <!-- you can simulate website visitor with an old browser by deliberate miss-spellings such as type="BELFAST" -->
+		<input type="number" name="TermInput" id="term" value="3" min="1" max="25" step="0.5" onChange="checkNum(this.value)"/>(Years)
+        <!-- onchange validator form browser that don't support type=number form elements -->
+		<br/>
+		<label for="rate">Interest Rate:</label>
+        <!-- you can simulate website visitor with an old browser by deliberate miss-spellings such as type="CREOSOTE" -->
+		<input type="number" name="RateInput" id="rate" value="5.0" min="1" max="10" step="0.1" onChange="checkNum(this.value)"/>% (APR)
+        <!-- onchange validator form browser that don't support type=number form elements -->
+		<br/>
+		<input type="button" name="calcButton" id="calc" value="Calculate" onClick="payment();" />
+		<br/>
+		&pound;<output name="pcm" id="pcm"></output> 
+		<br/>
+		</form>
+      </body>
+</html>

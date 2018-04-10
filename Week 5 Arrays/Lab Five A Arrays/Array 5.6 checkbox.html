@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>Arrays</title>
+      <style type="text/css">
+      
+         ol {
+			list-style-type: lower-alpha;
+		 } 
+      
+      </style>
+      </head>
+      <body>
+      	<p>Arrays 5.6</p>
+		
+		<script type="text/javascript">
+		
+			salad  = new Array();
+			salad[0] = "feta";
+			salad[1] = "tomatoes";
+			salad[2] = "lettuce";
+			salad[3] = "olives";
+			salad[4] = "olive oil";
+			salad[5] = "vinegar";
+			salad[6] = "herbs";
+			salad[7] = "seasoning";
+
+			document.write("<form method='get' action='http://pict.uws.ac.uk/cgi-davison/reflect.cgi'>");
+			for (var i = 0 ; i < salad.length ; i++ ) {
+				document.write("<input type='checkbox' name='shoppingList' value='" + salad[i] + "'>" + salad[i] + "<br />")
+			}
+			document.write("<input type='submit' value='Submit Details' name='submit' >");
+			document.write("</form>");
+		</script>
+		
+      </body>
+</html>

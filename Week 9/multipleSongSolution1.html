@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>2 to 4 choices Solution File</title>
+<script type="text/javascript">
+//<![CDATA[
+function checkSongs() {
+        var selections=0;
+        for (var i=0;i<document.getElementById('form1').songs.options.length;i=i+1) {
+                if (document.getElementById('form1').songs.options[i].selected) selections=selections+1;  
+        }
+        if (selections<2) window.alert("You must select at least two songs."); 
+        if (selections>4) window.alert("You must select no more than four songs."); 
+        if (selections>=2 && selections<=4) return true;
+        else return false;
+}
+//]]>
+</script>
+</head>
+<body>
+  <form method="post" action="http://pict.paisley.ac.uk/cgi-davison/reflect.cgi" 
+	onsubmit="return checkSongs();" id="form1">
+  <fieldset>
+    <legend>Please choose at least 2 (but no more than 4) of your favourite songs from the list.</legend>
+    <select name="songs" size="5" multiple="multiple">
+      <option>
+        Fortress Around Your Heart
+      </option>
+      <option>
+        Breakfast at Tiffany's
+      </option>
+      <option>
+        Flood
+      </option>
+      <option>
+        The Chess Game
+      </option>
+      <option>
+        Liquid
+      </option>
+      <option>
+        World's Apart
+      </option>
+      <option>
+        Ironic
+      </option>
+      <option>
+        1979
+      </option>
+      <option>
+        Wonderwall
+      </option>
+      <option>
+        Standing Outside a Broken Phone Booth
+      </option>
+    </select>
+	<br/>
+	<input type="submit" />
+    </fieldset>
+  </form>
+</body>
+</html>

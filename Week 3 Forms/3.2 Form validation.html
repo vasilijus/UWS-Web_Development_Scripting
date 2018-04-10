@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>Forms 3.2</title>
+      <style type="text/css">
+      
+                
+      
+      </style>
+      </head>
+      <body>
+      	<h1>My Form Page</h1>
+		
+		<form method="get" action="http://pict.uws.ac.uk/cgi-davison/feedback_3_2.py">
+			<fieldset>
+				<legend>Your Details</legend>
+				
+				<input type="hidden" name="My_Form_Page" value="This is a Completed Form"/>
+				<label>Title:</label>
+				
+				<select size="1" name="personal_title">
+					<option value="None">none selected</option>
+					<option value="Mr">Mr</option>
+					<option value="Mrs">Mrs</option>
+					<option value="Ms">Ms</option>
+					<option value="Miss">Miss</option>
+				</select>
+				<br />
+				
+				<label for="Firstname">First Name</label><input type="text" name="Firstname" />
+				<br />
+				
+				<label for="Surname">Surname</label><input type="text" name="Surname" />
+				<br />
+				
+				<label for="">What type of response would you prefer?</label>
+					<input type="radio" name="response" id="Mail" value="mail" /><label for="Mail">Mail</label>
+					<input type="radio" name="response" id="Mail" value="phone" /><label for="Mail">Telephone</label>
+					<input type="radio" name="response" id="Mail" value="fax" /><label for="Mail">Fax</label>
+					<input type="radio" name="response" id="Mail" value="email" /><label for="Mail">eMail</label>
+				<br />
+				<label for="">What type of response would you prefer?</label>
+					<input type="checkbox" value="1" name="xhtml" /><label>XHTML</label>
+					<input type="checkbox" value="2" name="css" /><label>CSS</label>
+					<input type="checkbox" value="1" name="js" /><label>JavaScript</label>
+					<input type="checkbox" value="1" name="flash" /><label>Flash</label>
+				<br />
+				<label for="customer_feedback">Comments: </label>
+					<textarea name="customer_feedback" rows="3" cols="15">			
+					</textarea>
+				<br />
+				
+				<input type="submit" value="Submit Details" name="Submit_Button">
+			</fieldset>
+		</form>
+		
+      </body>
+</html>

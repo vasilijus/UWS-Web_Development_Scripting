@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+  <title>Summation Template File</title>
+  
+<script type="text/javascript">
+
+function addUp() {
+        var a,b,c,sum;
+        a = document.getElementById('a').value; // extract the string of text typed into the input box 
+        b = document.getElementById('b').value;
+        c = document.getElementById('c').value;
+        // the problem is on the next line, all the other lines are OK and shouldn't be changed
+        sum = parseInt(a) + parseInt(b) + parseInt(c); 
+        window.alert("The sum is "+sum);
+}
+
+</script>
+</head>
+
+<body>
+  <form action="">
+  	<p>
+    <input type="text" name="aaa" size="5" id="a" />
+    <input type="text" name="bbb" size="5" id ="b"/>
+    <input type="text" name="ccc" size="5" id="c"/>
+    <input type="button" value="Sum Data" onclick="addUp();" />
+    </p>
+  </form>
+</body>
+</html>

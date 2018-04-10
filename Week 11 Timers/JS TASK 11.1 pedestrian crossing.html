@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<title>Improved Pedestrian Crossing</title>
+		<style type="text/css">
+			#button {
+			position:absolute;
+			margin:100px 0 0 20%;
+			
+			}
+		</style>
+		<script type="text/javascript">
+		window.onload = function(){
+		var timerID = null;
+		
+		
+			var slideImages = new Array();
+			
+			for (var i = 0; i < 4 ; i++)slideImages[i] = new Image();
+			
+			slideImages[0].src = "img/greenOff.jpg";
+			slideImages[1].src = "img/redOn.jpg";
+			slideImages[2].src = "img/greenOn.jpg"; 
+			slideImages[3].src = "img/redOff.jpg"
+			
+			var imgBtn = document.getElementById("button");
+			var toplight = document.getElementById("redUpperLight");
+			var botlight = document.getElementById("greenLowerLight");
+			
+			function swap() {
+				document.images[0].src = slideImages[1].src;
+				document.images[1].src = slideImages[0].src;
+			}
+			function swap1() {
+				document.images[0].src = slideImages[3].src;
+				document.images[1].src = slideImages[2].src;
+			}
+			imgBtn.addEventListener('click', function(){
+				console.log("pressed", timerID);
+				
+				if (timerID == null ) {
+					timerID = window.setTimeout(swap,3000);	
+					console.log("timer created", timerID);
+					timerID = window.setTimeout(swap1,2000);
+					timerID = null;
+				} else if (timerID != null){
+					window.clearTimeout(timerID);
+					console.log("timer created", timerID);
+				}
+			});
+		};
+		/*
+		window.addEventListener("Load",function(){ init(); });
+		
+		var init = function(){
+			
+		};
+		var init = function(){
+			
+		};
+		*/
+		</script>
+	</head>
+    <body>
+		<h2>Improved Pedestrian Crossing</h2>
+		<p>
+			<img src="img/redOn.jpg" height="340" width="303" alt="Red Man" id="redUpperLight"/><br/>
+			<img src="img/greenOff.jpg" height="340" width="303" alt="Green Man" id="greenLowerLight"/>
+			<img src="img/press.gif" height="105" width="105" id="button" alt="Press Button"/>
+		</p>
+			<hr/>
+		<p>
+		Name: Sergej Vasiljev<br/>
+		Banner ID: B00307448
+		</p>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+  <!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			
+			var imgArray = new Array(9);
+			imgArray[0] = new Image(324,432);
+			imgArray[0].src = "images5.10/harbour0.jpg";
+			for ( var i = 0 ; i <  9 ; i ++) {
+				imgArray[i] = new Image();
+				imgArray[i].src = "images5.10/harbour" + i + ".jpg";
+			}
+			var imgNr = 0; // All the images must be well named...
+			function changePlus(){
+				imgNr++;
+				document.slideShow.src = imgArray[imgNr].src;
+				
+				if (imgNr == 8 ){
+					imgNr = 0;
+				}
+				console.log(document.slideShow.src);
+				return ;
+			}
+			function changeMinus(){
+				imgNr--;
+				document.slideShow.src = imgArray[imgNr].src;
+				
+				if (imgNr == 0 ){
+					imgNr = 9;
+				}
+				console.log(document.slideShow.src);
+				return ;
+			}
+		</script>
+	</head>
+	<body>
+    <p>Arrays 5.10</p>
+    <p>
+    <a href="#"><img alt="direction" usemap="#directions" name="slideShow" width="324" height="432" src="images5.10/harbour0.jpg" alt="harbour0" /></a>
+	
+	<map name="directions">
+		<area shape="rect" coords="0,0,162,432" alt="left" onClick="changeMinus()" >
+		<area shape="rect" coords="163,0,324,432" alt="right" onClick="changePlus()" >
+	</map>
+    </p>
+</body>
+</html>

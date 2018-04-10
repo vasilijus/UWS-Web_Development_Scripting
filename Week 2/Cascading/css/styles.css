@@ -1,0 +1,37 @@
+    div.hint {font-family: monospace; color: forestgreen}
+    body {font-family: serif; background-color: #F0FFFF }
+    h1, h2 {font-family: Helvetica, sans-serif;}
+    h1 {color: green}
+    h2 {text-align: center; color: red}
+    p {text-indent: 2cm}
+    em {font-size: 150% }
+    strong {text-transform: uppercase}
+    a:link { color: red } 
+    a:visited { color: green } /* visited link */
+    a:active { color: blue } /* active link */
+    div.tarzan { border: solid thick black; background-color: #FFCCCC; padding: 2em}
+    img { margin: 2cm }
+	
+	/*	My Styles	*/
+	
+	.space{
+		padding:20px;
+		background-color:blue;
+		font-size:35px;
+	}
+	.pink {
+		background-color:pink;
+	}
+	
+	#notice {
+		z-index:999;
+		font-size:5em;
+		width:100%;
+		height:290px;
+		border:5px blue solid;
+	}
+	#notice p {
+		padding:auto;
+		color:blue;
+		margin-left:50px;
+	}

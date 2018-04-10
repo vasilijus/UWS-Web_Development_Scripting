@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- template of basic structure of an HTML5 file -->
+	<head>
+		<meta charset="utf-8" />
+		<style type="text/css">
+
+		</style>
+      	<p>Arrays 5.8</p>
+		
+		<script type="text/javascript">
+		//<![CDATA[
+		// create your Array object (1 line)
+		var slide_show = new Array();
+		// convert both your array elements into new Image objects (1, 2 or 3 lines maximum)
+		slide_show[0] = new Image(); // make each element of the array an Image object
+		slide_show[1] = new Image();
+		// preload "happy.gif" & "sad.gif" into your array of Image objects (2 lines)
+		slide_show[0].src ="images5.8/happy.gif";
+		slide_show[1].src ="images5.8/sad.gif";		
+
+		function swap(myVariable) {
+				document.images[0].src=slide_show[myVariable].src;       
+				//edit line above to change image in the DOM using array of preloaded images & myVariable
+				console.log(document.images[0].src); // this is handy for debugging
+		}
+		//]]>
+		</script>
+	</head>
+<body>
+<p>
+  <a href="test.html"
+	onMouseOver="swap(0); return true;" onMouseOut="swap(1)	; return true;" ><img src="images5.8/sad.gif" alt="Changing face" /></a>
+</p>
+</body>
+</html>
